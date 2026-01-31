@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import { BorrowersModule } from './borrowers/borrowers.module';
 import { CommonModule } from './common/common.module';
+import { BooksModule } from './books/books.module';
 
 @Module({
     imports: [
@@ -14,7 +15,8 @@ import { CommonModule } from './common/common.module';
         }),
         PrismaModule,
         CommonModule,
-        BorrowersModule
+        BorrowersModule,
+        BooksModule
     ],
     controllers: [AppController],
     providers: [AppService],
