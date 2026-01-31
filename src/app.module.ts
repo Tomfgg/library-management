@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
+import { BorrowersModule } from './borrowers/borrowers.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
     imports: [
@@ -11,6 +13,8 @@ import { PrismaModule } from './prisma/prisma.module';
             envFilePath: '.env',
         }),
         PrismaModule,
+        CommonModule,
+        BorrowersModule
     ],
     controllers: [AppController],
     providers: [AppService],
