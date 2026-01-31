@@ -6,6 +6,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { BorrowersModule } from './borrowers/borrowers.module';
 import { CommonModule } from './common/common.module';
 import { BooksModule } from './books/books.module';
+import { BorrowingModule } from './borrowings/borrowings.module';
 
 @Module({
     imports: [
@@ -16,7 +17,8 @@ import { BooksModule } from './books/books.module';
         PrismaModule,
         CommonModule,
         BorrowersModule,
-        BooksModule
+        BooksModule,
+        BorrowingModule
     ],
     controllers: [AppController],
     providers: [AppService],
