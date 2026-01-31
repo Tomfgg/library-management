@@ -7,6 +7,7 @@ import { BorrowersModule } from './borrowers/borrowers.module';
 import { CommonModule } from './common/common.module';
 import { BooksModule } from './books/books.module';
 import { BorrowingModule } from './borrowings/borrowings.module';
+import { ThrottlerModule } from '@nestjs/throttler';
 
 @Module({
     imports: [
@@ -18,7 +19,13 @@ import { BorrowingModule } from './borrowings/borrowings.module';
         CommonModule,
         BorrowersModule,
         BooksModule,
-        BorrowingModule
+        BorrowingModule,
+        ThrottlerModule.forRoot({
+            throttlers: [{
+                ttl: 60000,
+                limit: 100,
+            }]
+        }),
     ],
     controllers: [AppController],
     providers: [AppService],

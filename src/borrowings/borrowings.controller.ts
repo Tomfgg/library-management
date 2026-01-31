@@ -3,12 +3,15 @@ import { BorrowingService } from './borrowings.service';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { CurrentUserId } from '../common/decorators/current-user.decorator';
 import { AdminGuard } from 'src/common/guards/admin.guard';
+import { ThrottlerGuard, Throttle } from '@nestjs/throttler';
 
 @Controller('borrowings')
 export class BorrowingController {
     constructor(private readonly borrowingService: BorrowingService) { }
 
     @Post('checkout/:id')
+    @UseGuards(ThrottlerGuard)
+    @Throttle({ default: { ttl: 60000, limit: 10 } })
     @UseGuards(JwtAuthGuard)
     checkout(
         @CurrentUserId() userId: number,
@@ -18,6 +21,8 @@ export class BorrowingController {
     }
 
     @Post('return/:id')
+    @UseGuards(ThrottlerGuard)
+    @Throttle({ default: { ttl: 60000, limit: 10 } })
     @UseGuards(JwtAuthGuard)
     returnBook(
         @CurrentUserId() userId: number,
