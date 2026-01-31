@@ -21,7 +21,7 @@ This project was developed as a technical assessment with focus on **simplicity*
 
 ### Reports & Analytics (Bonus)
 - Borrowing analytics for a specific period
-- Export overdue borrowings of last month (CSV / XLSX)
+- Export overdue borrowings of last month (XLSX)
 - Export all borrowing processes of last month (XLSX)
 
 ### Security & Quality (Bonus)
@@ -67,6 +67,14 @@ Borrowing acts as a junction table between Borrower and Book.
 - `Borrowing.borrowerId` → `Borrower.id`
 - `Borrowing.bookId` → `Book.id`
 - `returnedAt` is nullable (null = active borrowing)
+
+---
+
+## API Collection (Postman)
+
+Postman collection is available at:
+
+docs/postman/library-management.postman_collection.json
 
 ---
 
