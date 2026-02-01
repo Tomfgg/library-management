@@ -97,7 +97,7 @@ Create a `.env` file in the root directory:
 cp .env.example .env
 ```
 
-#### 2. Run Docker Compose
+#### 3. Run Docker Compose
 
 ```bash
 docker compose up
@@ -226,6 +226,18 @@ If port 3000 is already in use, change the `PORT` in your `.env` file:
 
 ```env
 PORT=3001
+```
+
+---
+
+## ✅ Unit Tests
+
+The project includes comprehensive unit tests for the Books module using **Jest** and **Supertest**.
+
+### Running Tests
+
+```bash
+npm test
 ```
 
 ---
