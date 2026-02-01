@@ -46,7 +46,7 @@ model Borrowing {
   borrower Borrower @relation(fields: [borrowerId], references: [id])
   book     Book     @relation(fields: [bookId], references: [id])
 
-  @@index([borrowerId])
-  @@index([bookId])
-  @@index([dueDate])
+  @@index([borrowerId, bookId, returnedAt])
+  @@index([borrowerId, returnedAt])
+  @@index([returnedAt, dueDate])
 }
