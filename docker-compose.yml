@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    container_name: nest_api
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+    command: sh -c "npx prisma migrate deploy && node dist/main.js"
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: librarydb
+    volumes:
+      - library_management_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  library_management_postgres_data:

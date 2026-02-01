@@ -78,6 +78,31 @@ docs/postman/library-management.postman_collection.json
 
 ---
 
+## 🚀 Installation Guide Using Docker
+
+### Installation Steps
+
+#### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Tomfgg/library-management.git
+cd library-management-system
+```
+
+#### 2. Configure Environment Variables
+
+Create a `.env` file in the root directory:
+
+```bash
+cp .env.example .env
+```
+
+#### 2. Run Docker Compose
+
+```bash
+docker compose up
+```
+
 ## 🚀 Installation Guide
 
 ### Prerequisites
